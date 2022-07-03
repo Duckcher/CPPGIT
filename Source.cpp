@@ -12,7 +12,7 @@ int inputInt(const char query[])
 	{
 		cin.clear();
 		cin.ignore(cin.rdbuf()->in_avail());
-		cout << "Ошибка, повторите ввод: " << endl;
+		cout << "Error: " << endl;
 	}
 	return i;
 }
@@ -25,16 +25,16 @@ int main()
 	int* arr, i, max = 0, maxi;
 	while (size < 6)
 	{
-		size = inputInt("Введите размерность: ");
+		size = inputInt("Input size: ");
 		if (size < 6)
 		{
-			cout << "Размерность должна быть больше либо равно 6" << endl;
+			cout << "Size should be >= 6" << endl;
 		}
 	}
 	arr = (int*)malloc(size * sizeof(int*));
 		for (i = 0; i < size; i++)
 		{
-			cout << "Введите элемент массива " << i << ": ";
+			cout << "Input element " << i << ": ";
 			arr[i] = inputInt("");
 		}
 		for (i = 0; i < size; ++i)
@@ -50,7 +50,7 @@ int main()
 			}
 		}
 		cout << "" << endl;
-		cout << "Номер максимального: " << maxi << endl;
+		cout << "Number of maximum: " << maxi << endl;
 		for (i = 0; i <= 6; i++)
 		{
 
