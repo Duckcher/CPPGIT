@@ -3,40 +3,61 @@
 #include <Windows.h>
 #include <time.h>
 #include <iostream>
-#define MAX 10
 using namespace std;
+int inputInt(const char query[])
+{
+	int i;
+	cout << query;
+	while ((cin >> i).fail() || i <= 0)
+	{
+		cin.clear();
+		cin.ignore(cin.rdbuf()->in_avail());
+		cout << "Ошибка, повторите ввод: " << endl;
+	}
+	return i;
+}
 int main()
 {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	srand(time(NULL));
-	int arr[MAX], i, max = 0, maxi;
-	for (i = 0; i < MAX; ++i)
+	int size = 0;
+	int* arr, i, max = 0, maxi;
+	while (size < 6)
 	{
-		arr[i] = rand() % 100;
-	}
-	for (i = 0; i < MAX; ++i)
-	{
-		cout << " " << arr[i] << " ";
-	}
-	for (i = 0; i < MAX; ++i)
-	{
-		if (arr[i] > max)
+		size = inputInt("Введите размерность: ");
+		if (size < 6)
 		{
-			max = arr[i];
-			maxi = i;
+			cout << "Размерность должна быть больше либо равно 6" << endl;
 		}
 	}
-	cout << "" << endl;
-	cout << "Номер максимального: " << maxi + 1 << endl;
-	int count = 0;
-	for (i = 0; i < 6; i++)
-	{
-		count = i;
-	}
-	swap(arr[maxi], arr[count]);
-	for (i = 0; i < MAX; ++i)
-	{
-		cout << " " << arr[i] << " ";
-	}
+	arr = (int*)malloc(size * sizeof(int*));
+		for (i = 0; i < size; i++)
+		{
+			cout << "Введите элемент массива " << i << ": ";
+			arr[i] = inputInt("");
+		}
+		for (i = 0; i < size; ++i)
+		{
+			cout << " " << arr[i] << " ";
+		}
+		for (i = 0; i < size; ++i)
+		{
+			if (arr[i] > max)
+			{
+				max = arr[i];
+				maxi = i;
+			}
+		}
+		cout << "" << endl;
+		cout << "Номер максимального: " << maxi << endl;
+		for (i = 0; i <= 6; i++)
+		{
+
+		}
+		swap(arr[maxi], arr[i]);
+		for (i = 0; i < size; ++i)
+		{
+			cout << " " << arr[i] << " ";
+		}
 }
