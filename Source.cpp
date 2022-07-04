@@ -32,7 +32,7 @@ int main()
 	arr = (int*)malloc(size * sizeof(int*));
 		for (i = 0; i < size; i++)
 		{
-			cout << "Input element " << i << ": ";
+			cout << "Input element " << i << " ";
 			arr[i] = inputInt("");
 		}
 		for (i = 0; i < size; ++i)
