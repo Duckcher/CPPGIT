@@ -46,15 +46,26 @@ int main()
 			{
 				max = arr[i];
 				maxi = i;
+			}
+		}
+		for (i = 0; i < size; i++)
+		{
+			if (arr[i] == max)
+			{
 				countofmax += 1;
 			}
+		}
+		if (arr[5] == max)
+		{
+			cout << "max is 6 element, we cant swap" << endl;
+			system("pause");
 		}
 		if (countofmax == 1)
 		{
 
 			cout << "" << endl;
 			cout << "Number of maximum: " << maxi << endl;
-			for (i = 0; i <= 6; i++)
+			for (i = 0; i < 5; i++)
 			{
 
 			}
